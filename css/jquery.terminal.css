@@ -210,6 +210,7 @@ body.full-screen-terminal .terminal {
 .cmd,
 .cmd span:not(.fas):not(.far):not(.fa) {
     /*font-family: FreeMono, monospace; this don't work on Android */
+
     font-family: 'Lucida Console';
 }
 .terminal,
