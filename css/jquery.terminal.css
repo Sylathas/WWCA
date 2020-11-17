@@ -14,9 +14,6 @@
  *
  * Date: Mon, 02 Nov 2020 10:13:26 +0000
  */
-
- *= require fonts
-
  @font-face {
     font-family: 'Fira Code';
     src: url('FiraCode-Regular.eot');
