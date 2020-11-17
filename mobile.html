@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WWCA</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://it.allfont.net/allfont.css?fonts=lucida-console" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/jquery.terminal.css"/>
-  </head>
-  <body>
-    <div id='shell'>
-      <div class="status-bar">
-        <div class="title">Weekly Word Challenge Archive</div>
-      </div>
-      <div id='terminale'></div>
+
+<head>
+  <title>WWCA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://it.allfont.net/allfont.css?fonts=lucida-console" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/jquery.terminal.css" />
+</head>
+
+<body>
+  <div id='shell'>
+    <div class="status-bar">
+      <div class="title">Weekly Word Challenge Archive</div>
     </div>
-    <style>
-    body{
+    <div id='terminale'></div>
+  </div>
+  <style>
+    body {
       --background: white;
       --color: black;
       --size: 1.5;
     }
 
-    #shell{
+    #shell {
       position: absolute;
-      left:0;
-      top:0;
+      left: 0;
+      top: 0;
       width: 100vw;
       height: 100vh;
     }
 
-    #terminal-header{
+    #terminal-header {
       position: relative;
       left: 0;
       top: 0;
@@ -38,48 +40,50 @@
 
     .status-bar {
       position: relative;
-      background:#fff;
+      background: #fff;
       border-bottom: 2px solid;
-      height:28px
+      height: 28px
     }
 
-    .status-bar .title{
-      position:absolute;
+    .status-bar .title {
+      position: absolute;
       font-family: "Lucida Console";
       font-weight: bold;
-      top:0;
-      bottom:0;
-      left:0;
-      right:0;
-      font-size:1em;
-      line-height:1.6875em;
-      text-align:center
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 1em;
+      line-height: 1.6875em;
+      text-align: center
     }
-    </style>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-    <script src="https://unpkg.com/figlet/lib/figlet.js"></script>
-    <script>
-    figlet.defaults({fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/'});
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+  <script src="https://unpkg.com/figlet/lib/figlet.js"></script>
+  <script>
+    figlet.defaults({
+      fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/'
+    });
     figlet.preloadFonts(["Slant"], ready);
 
     var term;
     var commands = {
       help: function() {
         this.echo("\n[[;rgba(0,150,0,1);]info [[;rgba(0,0,0,0.8);] - description of the project \n" +
-        "[[;rgba(0,150,0,1);]weeks[[;rgba(0,0,0,0.8);] - list of the available weeks \n" +
-        "[[;rgba(0,150,0,1);]week(x)[[;rgba(0,0,0,0.8);] - x is the number of the week\n")
+          "[[;rgba(0,150,0,1);]weeks[[;rgba(0,0,0,0.8);] - list of the available weeks \n" +
+          "[[;rgba(0,150,0,1);]week(x)[[;rgba(0,0,0,0.8);] - x is the number of the week\n")
       }
     };
 
     function ready() {
-    var term = $('#terminale').terminal(commands, {
+      var term = $('#terminale').terminal(commands, {
         prompt: 'user@host:/',
         // detect iframe codepen preview
         enabled: $('body').attr('onload') === undefined,
         greetings: function() {
           return render('Weekly Word Challenge Archive', 'Slant') +
-          '\n[[;rgba(0,150,0,1);]Welcome to the Weekly Words Challenge Archive! Type help to get the list of commands necessary to browse the website.\n';
+            '\n[[;rgba(0,150,0,1);]Welcome to the Weekly Words Challenge Archive! Type help to get the list of commands necessary to browse the website.\n';
         }
       });
     }
@@ -91,6 +95,7 @@
         whitespaceBreak: true
       });
     }
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>

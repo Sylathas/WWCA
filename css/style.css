@@ -1,80 +1,133 @@
 /*Background*/
 body {
   background: linear-gradient(90deg, white 2px, transparent 1%) center, linear-gradient(white 2px, transparent 1%) center, black;
-	 background-size: 4px 4px;
+  background-size: 4px 4px;
+}
+
+.project{
+  display: inline-block;
+  margin-left: 40px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.project img {
+  cursor: pointer;
+}
+
+.project p {
+  margin: 10px 0 0 0;
+}
+
+.project:hover {
+  background-color: blue;
+  color: white;
 }
 
 /*Terminal Style*/
 body .shell {
-    position: absolute;
-    left: 30vw;
-    top: 25vh;
-    width: 40vw;
-    height: 50vh;
-    background-color: white;
-    border: 2px solid;
-    box-shadow: 3px 3px;
-    min-width: 610px;
+  position: absolute;
+  left: 30vw;
+  top: 25vh;
+  width: 40vw;
+  height: 50vh;
+  background-color: white;
+  border: 2px solid;
+  box-shadow: 3px 3px;
+  min-width: 610px;
 }
+
 body .shell .terminal {
-    height: calc(100% - 29px);
-    padding: 10px;
-    --size: 1.3;
-    padding-bottom: 0;
+  height: calc(100% - 29px);
+  padding: 10px;
+  --size: 1.3;
+  padding-bottom: 0;
 }
 
-body .shell .status-bar {
+.status-bar {
   position: relative;
-  background:#fff;
+  background: #fff;
   border-bottom: 2px solid;
-  height:28px
+  height: 28px
 }
 
-body .shell .status-bar .title{
-  position:absolute;
+.title {
+  position: absolute;
   font-family: "Lucida Console";
   font-weight: bold;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  font-size:1em;
-  line-height:1.6875em;
-  text-align:center
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 1em;
+  line-height: 1.6875em;
+  text-align: center
 }
 
-.shell > .status-bar .title {
-    cursor: move;
+.status-bar .title {
+  cursor: move;
 }
+
 /*
  * fix to shell.js to center title to free space
  */
 .shell.windows .status-bar .title {
-    right: 106px;
+  right: 106px;
 }
+
 @supports (--css: variables) {
-    .shell .terminal {
-      --background: white;
-      --color: black;
-    }
+  .shell .terminal {
+    --background: white;
+    --color: black;
+  }
 }
 
 /* fix for Firefox */
-.terminal > .resizer, .terminal > .font .resizer {
-    visibility: visible;
-    pointer-events: none;
+.terminal>.resizer, .terminal>.font .resizer {
+  visibility: visible;
+  pointer-events: none;
 }
-.terminal::-webkit-scrollbar-track
-{
-	border: 1px solid var(--color, #aaa);
-	background-color: var(--background);
+
+.terminal::-webkit-scrollbar-track {
+  border: 1px solid var(--color, #aaa);
+  background-color: var(--background);
 }
-.terminal::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: var(--background);
+
+.terminal::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--background);
 }
-.terminal::-webkit-scrollbar-thumb
-{
-	background-color: var(--color, #aaa);
+
+.terminal::-webkit-scrollbar-thumb {
+  background-color: var(--color, #aaa);
+}
+
+.imageGallery{
+  background-color: white;
+  position: absolute;
+  border: 2px solid;
+}
+
+.changeImage{
+  margin: 0 20px 0 20px;
+  cursor: pointer;
+}
+
+.changeImage:hover {
+  background-color: blue;
+  color: white;
+}
+
+.close {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.close:hover{
+  background-color: red;
 }

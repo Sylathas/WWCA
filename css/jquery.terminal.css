@@ -57,7 +57,7 @@
     z-index: 1000;
     overflow: hidden;
     white-space: pre;
-    text-indent: -9999em; /* better cursor hiding for Safari and IE */
+    /*text-indent: -9999em; better cursor hiding for Safari and IE */
     top: calc(var(--cursor-line, 0) * var(--size, 1) * 14px);
 }
 
