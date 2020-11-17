@@ -1,15 +1,17 @@
+*= require fonts
+
 @font-face {
- font-family: 'FiraCode';
- src: url('C:/Users/Socrates/Documents/GitHub/WWCA/css/firacode.woff2') format('woff2'), /* Super Modern Browsers */
-      url('C:/Users/Socrates/Documents/GitHub/WWCA/css/firacode.woff') format('woff'), /* Pretty Modern Browsers */
-      url('C:/Users/Socrates/Documents/GitHub/WWCA/css/firacode.ttf')  format('truetype'), /* Safari, Android, iOS */
+ font-family: "Fira Code";
+ src: url("./fonts/FiraCode-Regular.woff2") format('woff2'),  Super Modern Browsers
+      url("./fonts/FiraCode-Regular.woff") format('woff'),  Pretty Modern Browsers
+      url("./fonts/FiraCode-Regular.ttf")  format('truetype');  Safari, Android, iOS */
 }
 
 /*Background*/
 body {
   background: linear-gradient(90deg, white 2px, transparent 1%) center, linear-gradient(white 2px, transparent 1%) center, black;
   background-size: 4px 4px;
-  font-family: 'FiraCode';
+  font-family: "Fira Code";
 }
 
 .project{
@@ -69,7 +71,6 @@ body .shell .terminal {
   font-size: 1em;
   line-height: 1.6875em;
   text-align: center;
-  font-family: 'FiraCode';
 }
 
 .status-bar .title {

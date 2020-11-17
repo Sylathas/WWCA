@@ -15,12 +15,14 @@
  * Date: Mon, 02 Nov 2020 10:13:26 +0000
  */
 
+ *= require fonts
+
  @font-face {
-  font-family: 'FiraCode';
-  src: url('FiraCode-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('FiraCode-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('FiraCode-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-}
+  font-family: "Fira Code";
+  src: url("./fonts/FiraCode-Regular.woff2") format('woff2'),  Super Modern Browsers
+       url("./fonts/FiraCode-Regular.woff") format('woff'),  Pretty Modern Browsers
+       url("./fonts/FiraCode-Regular.ttf")  format('truetype');  Safari, Android, iOS */
+ }
 
 .terminal .terminal-output .format, .cmd .format,
 .cmd-prompt, .cmd-prompt div {
@@ -218,7 +220,7 @@ body.full-screen-terminal .terminal {
 .cmd span:not(.fas):not(.far):not(.fa) {
     /*font-family: FreeMono, monospace; this don't work on Android */
 
-    font-family: 'FiraCode';
+    font-family: "Fira Code";
 }
 .terminal,
 .cmd {
