@@ -3,8 +3,8 @@
 @font-face {
  font-family: "Fira Code";
  src: url("../fonts/FiraCode-Regular.woff2") format('woff2'),  Super Modern Browsers
-      url("../fonts/FiraCode-Regular.woff2") format('woff'),  Pretty Modern Browsers
-      url("../fonts/FiraCode-Regular.woff2")  format('truetype');  Safari, Android, iOS */
+      url("../fonts/FiraCode-Regular.woff") format('woff'),  Pretty Modern Browsers
+      url("../fonts/FiraCode-Regular.ttf")  format('truetype');  Safari, Android, iOS */
 }
 
 body {
