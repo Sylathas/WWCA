@@ -1,7 +1,15 @@
+@font-face {
+ font-family: 'FiraCode';
+ src: url('C:/Users/Socrates/Documents/GitHub/WWCA/css/firacode.woff2') format('woff2'), /* Super Modern Browsers */
+      url('C:/Users/Socrates/Documents/GitHub/WWCA/css/firacode.woff') format('woff'), /* Pretty Modern Browsers */
+      url('C:/Users/Socrates/Documents/GitHub/WWCA/css/firacode.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
 /*Background*/
 body {
   background: linear-gradient(90deg, white 2px, transparent 1%) center, linear-gradient(white 2px, transparent 1%) center, black;
   background-size: 4px 4px;
+  font-family: 'FiraCode';
 }
 
 .project{
@@ -53,7 +61,6 @@ body .shell .terminal {
 
 .title {
   position: absolute;
-  font-family: "Lucida Console";
   font-weight: bold;
   top: 0;
   bottom: 0;
@@ -61,7 +68,8 @@ body .shell .terminal {
   right: 0;
   font-size: 1em;
   line-height: 1.6875em;
-  text-align: center
+  text-align: center;
+  font-family: 'FiraCode';
 }
 
 .status-bar .title {
