@@ -19,9 +19,9 @@
 
  @font-face {
   font-family: "Fira Code";
-  src: url("./fonts/FiraCode-Regular.woff2") format('woff2'),  Super Modern Browsers
-       url("./fonts/FiraCode-Regular.woff") format('woff'),  Pretty Modern Browsers
-       url("./fonts/FiraCode-Regular.ttf")  format('truetype');  Safari, Android, iOS */
+  src: url("./WWCA/fonts/FiraCode-Regular.woff2") format('woff2'),  Super Modern Browsers
+       url("./WWCA/fonts/FiraCode-Regular.woff") format('woff'),  Pretty Modern Browsers
+       url("./WWCA/fonts/FiraCode-Regular.ttf")  format('truetype');  Safari, Android, iOS */
  }
 
 .terminal .terminal-output .format, .cmd .format,
@@ -219,7 +219,6 @@ body.full-screen-terminal .terminal {
 .cmd,
 .cmd span:not(.fas):not(.far):not(.fa) {
     /*font-family: FreeMono, monospace; this don't work on Android */
-
     font-family: "Fira Code";
 }
 .terminal,
