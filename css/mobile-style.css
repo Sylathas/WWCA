@@ -1,0 +1,50 @@
+*= require fonts
+
+@font-face {
+ font-family: "Fira Code";
+ src: url("./fonts/FiraCode-Regular.woff2") format('woff2'),  Super Modern Browsers
+      url("./fonts/FiraCode-Regular.woff") format('woff'),  Pretty Modern Browsers
+      url("./fonts/FiraCode-Regular.ttf")  format('truetype');  Safari, Android, iOS */
+}
+
+body {
+  --background: white;
+  --color: black;
+  --size: 1.5;
+  font-family: "Fira Code";
+}
+
+#shell {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#terminal-header {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: 28px;
+  border-bottom: 2px solid;
+}
+
+.status-bar {
+  position: relative;
+  background: #fff;
+  border-bottom: 2px solid;
+  height: 28px
+}
+
+.status-bar .title {
+  position: absolute;
+  font-weight: bold;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 1em;
+  line-height: 1.6875em;
+  text-align: center;
+}

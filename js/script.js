@@ -25,7 +25,7 @@ var commands = {
 [[;rgba(0,150,0,1);]weekx[[;rgba(0,0,0,0.8);] - as x the number of the week\n`)
   },
   weeks: function() {
-    this.echo(render('Week 1', 'Slant') + "\nThis week is currently in progress. \nThe words are [[;rgba(0,150,0,1);]Spirito[[;rgba(0,0,0,0.8);] and [[;rgba(0,150,0,1);]Pubblicità.\n")
+    this.echo(render('Week 1', 'Slant') + "\nThis week is currently in progress. \nThe words are [[;rgba(0,150,0,1);]Spirit[[;rgba(0,0,0,0.8);] and [[;rgba(0,150,0,1);]Advertisement.\n")
   },
   info: function() {
     this.echo(render('Info', 'Slant') + `\nThe Weekly Word Challenge is a creative game.
