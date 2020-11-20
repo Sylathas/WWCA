@@ -56,7 +56,8 @@ body .shell {
   background-color: white;
   border: 2px solid;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
-  min-width: 610px;
+  min-width: 650px;
+  min-height: 430px;
 }
 
 body .shell .terminal {
@@ -87,6 +88,10 @@ body .shell .terminal {
 
 .status-bar .title {
   cursor: move;
+}
+
+a:visited {
+  color: blue;
 }
 
 /*
@@ -128,6 +133,7 @@ body .shell .terminal {
   background-color: white;
   position: absolute;
   border: 2px solid;
+  user-select: none;
 }
 
 .changeImage{

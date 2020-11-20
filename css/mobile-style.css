@@ -55,11 +55,12 @@ body {
   display: inline-block;
   padding: 5px;
   cursor: pointer;
+  margin: 0 10px 40px 0;
 }
 
 .project p {
-  position: absoute;
-  margin: 10px 0 20px 0;
+  position: absolute;
+  margin: 5px 0 0 0;
 }
 
 .imageGallery{
@@ -75,6 +76,10 @@ body {
 .changeImage{
   margin: 0 20px 0 20px;
   font-size: 10vw;
+}
+
+a:visited {
+  color: blue;
 }
 
 #contenuto_galleria{

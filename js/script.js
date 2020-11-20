@@ -1,7 +1,7 @@
 //Resize and Drag with JQueryUI
 var shell = $('.shell').resizable({
-  minHeight: 400,
-  minWidth: 610
+  minHeight: 430,
+  minWidth: 650
 }).draggable({
   handle: '> .status-bar .title',
   containment: "#container"
@@ -24,21 +24,20 @@ var term;
 var nome;
 var commands = {
   help: function() {
-    this.echo(`\n[[;rgba(0,150,0,1);]info [[;rgba(0,0,0,0.8);] - description of the project
-[[;rgba(0,150,0,1);]weeks[[;rgba(0,0,0,0.8);] - list of the available weeks
-[[;rgba(0,150,0,1);]weekx[[;rgba(0,0,0,0.8);] - as x the number of the week\n`)
+    this.echo($(`<p><span style=\'color: green\'>info</span>  - description of the project</br>
+<span style=\'color: green\'>weeks</span> - list of the available weeks</br>
+<span style=\'color: green\'>weekx</span> - as x the number of the week</p>`));
   },
   weeks: function() {
-    this.echo(render('Week 1', 'Slant') + "\nThis week is currently in progress. \nThe words are [[;rgba(0,150,0,1);]Spirit[[;rgba(0,0,0,0.8);] and [[;rgba(0,150,0,1);]Advertisement.\n")
+    this.echo(render('Week 1', 'Slant'));
+    this.echo($('<p><span style=\'color: red\'>Week 1</span> is currently in progress.</br>The words are: <span style=\'color: green\'>Spirit</span> and <span style=\'color: green\'>Advertisement</span>.</p>'));
   },
   info: function() {
-    this.echo(render('Info', 'Slant') + `\nThe Weekly Word Challenge is a creative game.
-The rules consist in choosing 2 random words every week and making a completely free creative project linked to them.
-At the end of the week we meet up virtually on Discord and discuss the projects and the thought process behind them.
-This website is an archive of those project.
-\n\nWe are:\n[[!;;;;https://www.instagram.com/sylathas/]Niccolò Abate]\n[[!;;;;https://www.instagram.com/alvise_aspesi]Alvise Aspesi]
-[[!;;;;https://www.instagram.com/massimilianocasonvilla]Massimiliano Cason Villa]\n[[!;;;;https://www.instagram.com/martacrippaa]Marta Crippa]
-[[!;;;;https://www.instagram.com/lerman.theboy]Davide Perucchini]\n`)
+    this.echo(render('Info', 'Slant'));
+    this.echo($(`<p>The <span style=\'color: red\'>Weekly Word Challenge</span> is a creative game. <br>The rules consist in making a creative project on any medium you like linked to two words chosen randomly every week.
+    At the end of the week we meet up virtually on Discord to discuss the projects and the thought process behind them.</br> This website is an archive of those project.</br></br>
+    We are:</br><a href='https://www.instagram.com/sylathas/'>Niccolò Abate</a></br><a href='https://www.instagram.com/alvise_aspesi'>Alvise Aspesi</a></br><a href='https://www.instagram.com/massimilianocasonvilla'>Massimiliano Cason Villa</a>
+    </br><a href='https://www.instagram.com/martacrippaa'>Marta Crippa</a></br><a href='https://www.instagram.com/lerman.theboy'>Davide Perucchini</a></p>`));
   },
   week1: function() {
     this.echo('\n');
