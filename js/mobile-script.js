@@ -1,7 +1,14 @@
-figlet.defaults({
-  fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/'
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// We listen to the resize event
+window.addEventListener('resize', () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
-figlet.preloadFonts(["Slant"], ready);
 
 var week1div = $(`<div class='project'><img src='http://placekitten.com/100/150' onclick='imageGallery(1, "Niccolò Abate")'><p>Niccolò<br>Abate</p></div>
   <div class='project'><img src='http://placekitten.com/100/150' onclick='imageGallery(1,"Alvise Aspesi")'><p>Alvise<br>Aspesi</p></div>
@@ -68,7 +75,7 @@ function lastphoto() {
   var oldimageindex = parseInt(imageindexfull.substr(imageindexfull.length - 3));
   var imageindex = oldimageindex - 1;
   if(oldimageindex > 300)
-    $("img.galleria").attr("src","http://placekitten.com/100/" + imageindex);
+    $("img.galleria").attr("src","http://placekitten.com/200/" + imageindex);
 }
 
 function nextphoto() {
