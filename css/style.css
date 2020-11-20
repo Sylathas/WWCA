@@ -18,6 +18,14 @@ body {
   font-family: 'Fira Code';
 }
 
+#container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
 .project{
   display: inline-block;
   margin-left: 40px;
@@ -47,7 +55,7 @@ body .shell {
   height: 50vh;
   background-color: white;
   border: 2px solid;
-  box-shadow: 3px 3px;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
   min-width: 610px;
 }
 
@@ -116,6 +124,7 @@ body .shell .terminal {
 }
 
 .imageGallery{
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
   background-color: white;
   position: absolute;
   border: 2px solid;
@@ -133,14 +142,31 @@ body .shell .terminal {
 
 .close {
   position: absolute;
-  right: 5px;
-  top: 3px;
-  width: 20px;
-  height: 20px;
+  right: 7.5px;
+  top: 5.5px;
+  width: 15px;
+  height: 15px;
   border: 1px solid;
   cursor: pointer;
 }
 
 .close:hover{
   background-color: red;
+}
+
+/* Ipad CSS */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+  body .shell {
+    left: 18vw;
+    top: 25vh;
+    min-width: 650px;
+  }
+  .status-bar {
+    height: 56px;
+  }
+  body .shell .terminal {
+    height: calc(100% - 56px);
+  }
 }

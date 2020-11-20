@@ -1,8 +1,10 @@
+//Resize and Drag with JQueryUI
 var shell = $('.shell').resizable({
-  minHeight: 108,
-  minWidth: 250
+  minHeight: 400,
+  minWidth: 610
 }).draggable({
-  handle: '> .status-bar .title'
+  handle: '> .status-bar .title',
+  containment: "#container"
 });
 
 figlet.defaults({
@@ -15,7 +17,9 @@ var week1div = $(`<div class='project'><img src='http://placekitten.com/200/300'
   <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Alvise Aspesi")'><p>Alvise Aspesi</p></div>
   <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Massimiliano Villa")'><p>Massimiliano Villa</p></div>
   <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Marta Crippa")'><p>Marta Crippa</p></div>
-  <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Davide Perucchini")'><p>Davide Perucchini</p></div>`);
+  <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Davide Perucchini")'><p>Davide Perucchini</p></div>
+  <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Federico Cordelli")'><p>Federico Cordelli</p></div>
+  <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Elisa Carbone")'><p>Elisa Carbone</p></div>`);
 var term;
 var nome;
 var commands = {
@@ -99,6 +103,5 @@ function nextphoto(index) {
 }
 
 function closeDiv(index) {
-  console.log('ciao');
   $("div.galleria" + index).remove();
 }
