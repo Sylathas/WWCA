@@ -1,3 +1,27 @@
+//Clock
+var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+if(nhour==0){ap=" AM";nhour=12;}
+else if(nhour<12){ap=" AM";}
+else if(nhour==12){ap=" PM";}
+else if(nhour>12){ap=" PM";nhour-=12;}
+
+if(nmin<=9) nmin="0"+nmin;
+if(nsec<=9) nsec="0"+nsec;
+
+var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+document.getElementById('clockbox').innerHTML=clocktext;
+}
+
+GetClock();
+setInterval(GetClock,1000);
+
 //Resize and Drag with JQueryUI
 var shell = $('.shell').resizable({
   minHeight: 430,
@@ -12,7 +36,16 @@ figlet.defaults({
 });
 figlet.preloadFonts(["Standard", "Slant"], ready);
 
+var terminaliaperti = 1;
 var galleryIndex = 0;
+var openterminale = $(`
+  <div class="shell osx light shadow">
+    <div class="status-bar">
+      <div class="title">Weekly Word Challenge Archive</div>
+      <div class='close' onclick='closeDiv(0, "div.shell", false)'></div>
+    </div>
+    <div class="content"></div>
+  </div>`);
 var week1div = $(`<div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1, "Niccolò Abate")'><p>Niccolò Abate</p></div>
   <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Alvise Aspesi")'><p>Alvise Aspesi</p></div>
   <div class='project'><img src='http://placekitten.com/200/300' onclick='imageGallery(1,"Massimiliano Villa")'><p>Massimiliano Villa</p></div>
@@ -43,6 +76,9 @@ var commands = {
     this.echo('\n');
     this.echo(week1div);
     this.echo('\n');
+  },
+  reset: function() {
+    this.destroy();
   }
 
 };
@@ -52,8 +88,8 @@ function ready() {
     prompt: '[[;blue;]User@server:/ ',
     enabled: $('body').attr('onload') === undefined,
     greetings: function() {
-      return render('Weekly Word Challenge Archive', 'Standard') +
-      '\n[[;rgba(0,150,0,1);]Welcome to the Weekly Words Challenge Archive!\nType [[;rgba(0,0,255,1);]help [[;rgba(0,150,0,1);]to get the list of commands.\n';
+      this.echo(render('Weekly Word Challenge Archive', 'Standard'));
+      this.echo($('<p style=\"color: green\">Welcome to the Weekly Words Challenge Archive!<br>Type <span style=\"color: blue\">help</span> to get the list of commands.<br> </p>'));
     }
   });
 }
@@ -71,7 +107,7 @@ function imageGallery(week, author) {
     <div class='imageGallery galleria` + galleryIndex + `'>
       <div class='status-bar' style="margin-bottom:5px">
         <div class="title">` + author + " " + week +`</div>
-        <div class='close' onclick='closeDiv(` + galleryIndex + `)'></div>
+        <div class='close' onclick='closeDiv(` + galleryIndex + "," + "\"div.galleria\"," + "true" +`)'></div>
       </div>
       <span class='changeImage' onclick='lastphoto(` + galleryIndex + `)'>&#60;</span>
       <img class='galleria` + galleryIndex + `' src='http://placekitten.com/200/300'>
@@ -101,6 +137,58 @@ function nextphoto(index) {
     $("img.galleria" + index).attr("src","http://placekitten.com/200/" + imageindex);
 }
 
-function closeDiv(index) {
-  $("div.galleria" + index).remove();
+function closeDiv(index, div, gallery) {
+  if (gallery)
+    $(div + index).remove();
+  else {
+    $('.content').terminal().destroy();
+    $(div).remove();
+    terminaliaperti--;
+  }
+}
+
+function openTerminal() {
+  if(terminaliaperti == 0){
+    $( "body" ).append(openterminale);
+    var term = $('.content').terminal(commands, {
+      prompt: '[[;blue;]User@server:/ ',
+      enabled: $('body').attr('onload') === undefined,
+      greetings: function() {
+        this.echo(render('Weekly Word Challenge Archive', 'Standard'));
+        this.echo($('<p style=\"color: green\">Welcome to the Weekly Words Challenge Archive!<br>Type <span style=\"color: blue\">help</span> to get the list of commands.<br> </p>'));
+      }
+    });
+    var shell = $('.shell').resizable({
+      minHeight: 430,
+      minWidth: 650
+    }).draggable({
+      handle: '> .status-bar .title',
+      containment: "#container"
+    });
+    terminaliaperti++;
+  }
+}
+
+function changeMode() {
+  var mode = $('.modalita').text();
+  console.log(mode);
+  if (mode == 'Light Mode'){
+    $('.shell').css({'background-color': 'black', '--color': 'white'});
+    $('.terminal').css({'--color': 'white', '--background': 'black'});
+    $('.status-bar').css('background', '#000');
+    $('.upper-bar').css({'background-color': '#000', 'color': 'white', 'border': '2px solid white'});
+    $('.title').css('color', 'white');
+    $('.close').css('border', '2px solid white');
+    $('body').css({'background': 'linear-gradient(90deg, black 2px, transparent 1%) center, linear-gradient(black 2px, transparent 1%) center, gray', 'background-size': '4px 4px'});
+    $('.modalita').text('Dark Mode');
+  } else if (mode == 'Dark Mode'){
+    $('.shell').css({'background-color': 'white', '--color': 'black'});
+    $('.terminal').css({'--color': 'black', '--background': 'white'});
+    $('.status-bar').css('background', '#fff');
+    $('.upper-bar').css({'background-color': '#fff', 'color': 'black', 'border': '2px solid black'});
+    $('.title').css('color', 'black');
+    $('.close').css('border', '2px solid black');
+    $('body').css({'background': 'linear-gradient(90deg, white 2px, transparent 1%) center, linear-gradient(white 2px, transparent 1%) center, black', 'background-size': '4px 4px'});
+    $('.modalita').text('Light Mode');
+  }
 }
