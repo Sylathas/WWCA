@@ -173,21 +173,21 @@ function changeMode() {
   var mode = $('.modalita').text();
   console.log(mode);
   if (mode == 'Light Mode'){
-    $('.shell').css({'background-color': 'black', '--color': 'white'});
-    $('.terminal').css({'--color': 'white', '--background': 'black'});
-    $('.status-bar').css('background', '#000');
-    $('.upper-bar').css({'background-color': '#000', 'color': 'white', 'border': '2px solid white'});
+    $('.shell').css({'background-color': '#303030	', '--color': 'white', 'border': '2px solid gray'});
+    $('.cmd').css({'color': 'white', 'background': '#303030'});
+    $('.status-bar').css('background', '#303030	');
+    $('.upper-bar').css({'background-color': '#303030	', 'color': 'white', 'border': '1px solid gray'});
     $('.title').css('color', 'white');
-    $('.close').css('border', '2px solid white');
-    $('body').css({'background': 'linear-gradient(90deg, black 2px, transparent 1%) center, linear-gradient(black 2px, transparent 1%) center, gray', 'background-size': '4px 4px'});
+    $('.close').css('border', '1px solid #303030');
+    $('body').css({'background': 'linear-gradient(90deg, black 2px, transparent 1%) center, linear-gradient(black 2px, transparent 1%) center, #303030	', 'background-size': '4px 4px'});
     $('.modalita').text('Dark Mode');
   } else if (mode == 'Dark Mode'){
     $('.shell').css({'background-color': 'white', '--color': 'black'});
     $('.terminal').css({'--color': 'black', '--background': 'white'});
     $('.status-bar').css('background', '#fff');
-    $('.upper-bar').css({'background-color': '#fff', 'color': 'black', 'border': '2px solid black'});
+    $('.upper-bar').css({'background-color': '#fff', 'color': 'black', 'border': '2px solid gray'});
     $('.title').css('color', 'black');
-    $('.close').css('border', '2px solid black');
+    $('.close').css('border', '2px solid gray');
     $('body').css({'background': 'linear-gradient(90deg, white 2px, transparent 1%) center, linear-gradient(white 2px, transparent 1%) center, black', 'background-size': '4px 4px'});
     $('.modalita').text('Light Mode');
   }
