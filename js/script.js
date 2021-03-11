@@ -146,6 +146,11 @@ function closeDiv(index, div, gallery) {
     terminaliaperti--;
     $('#open_terminale').removeClass('open_terminale');
     $('#open_terminale').addClass('open_terminale1');
+    if($('.modalita').text() == 'Light Mode'){
+      $('.open_terminale1').css({'color': 'white'});
+    } else{
+      $('.open_terminale1').css({'color': 'black'});
+    }
   }
 }
 
@@ -171,6 +176,11 @@ function openTerminal() {
     changeMode(true);
     $('#open_terminale').removeClass('open_terminale1');
     $('#open_terminale').addClass('open_terminale');
+    if($('.modalita').text() == 'Light Mode'){
+      $('.open_terminale').css({'color': 'gray'});
+    } else{
+      $('.open_terminale').css({'color': 'gray'});
+    }
   }
 }
 
@@ -181,11 +191,12 @@ function changeMode(ans) {
     $('.shell').css({'border': '2px solid gray'});
     $(".shell .terminal").css({'--color': 'white', "--background": "black"});
     $('.cmd').css({'color': 'white', 'background': '#303030'});
-    $('.status-bar').css('background', '#303030	');
+    $('.status-bar').css('background', '#303030');
     $('.upper-bar').css({'background-color': '#303030	', 'color': 'white', 'border': '1px solid gray'});
     $('.title').css('color', 'white');
     $('.close').css('border', '1px solid gray');
     $('body').css({'background': 'linear-gradient(90deg, black 2px, transparent 1%) center, linear-gradient(black 2px, transparent 1%) center, #303030	', 'background-size': '4px 4px'});
+    $('.open_terminale1').css({'color': 'white'});
     if(!ans){$('.modalita').text('Light Mode')}
   } else if ((mode == 'Light Mode' && !ans) || (mode == 'Dark Mode' && ans)){
     console.log(ans);
@@ -196,6 +207,7 @@ function changeMode(ans) {
     $('.title').css('color', 'black');
     $('.close').css('border', '2px solid black');
     $('body').css({'background': 'linear-gradient(90deg, white 2px, transparent 1%) center, linear-gradient(white 2px, transparent 1%) center, black', 'background-size': '4px 4px'});
+    $('.open_terminale1').css({'color': 'black'});
     if(!ans){$('.modalita').text('Dark Mode')};
   }
 }
