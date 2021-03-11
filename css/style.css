@@ -106,13 +106,27 @@ a:visited {
 }
 
 .open_terminale{
+  cursor: auto;
+  line-height: 1.75em;
+  margin-left: 10px;
+  float: left;
+  color: gray;
+}
+
+.open_terminale:hover{
+  background-color: white;
+  color: gray;
+}
+
+.open_terminale1{
   cursor: pointer;
   line-height: 1.75em;
   margin-left: 10px;
   float: left;
+  color: black;
 }
 
-.open_terminale:hover{
+.open_terminale1:hover{
   background-color: blue;
   color: white;
 }

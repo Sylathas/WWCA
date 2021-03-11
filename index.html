@@ -24,14 +24,14 @@
   </div>
   <div class='upper-bar'>
     <div>
-      <div class='open_terminale' onclick='openTerminal()'>Open Terminal</div>
-      <div id="ChangeMode" onclick='changeMode()'><span class='modalita'>Light Mode</span></div>
+      <div class='open_terminale' id='open_terminale' onclick='openTerminal()'>Open Terminal</div>
+      <div id="ChangeMode" onclick='changeMode(false)'><span class='modalita'>Dark Mode</span></div>
     </div>
     <div id="clockbox"></div>
   </div>
   <!-- partial -->
   <script src="https://unpkg.com/figlet/lib/figlet.js"></script>
-  <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+  <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
   <script src='https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js'></script>
   <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>

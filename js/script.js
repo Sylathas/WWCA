@@ -104,7 +104,7 @@ function render(text,font) {
 
 function imageGallery(week, author) {
   var imageGallery = $(`
-    <div class='imageGallery galleria` + galleryIndex + `'>
+    <div class='imageGallery galleria` + galleryIndex + `' style='top:` + Math.floor((Math.random() * window.innerHeight) + 1) + `px; left: ` + Math.floor((Math.random() * window.innerWidth) + 1) + `px; z-index: 2;'>
       <div class='status-bar' style="margin-bottom:5px">
         <div class="title">` + author + " " + week +`</div>
         <div class='close' onclick='closeDiv(` + galleryIndex + "," + "\"div.galleria\"," + "true" +`)'></div>
@@ -144,6 +144,8 @@ function closeDiv(index, div, gallery) {
     $('.content').terminal().destroy();
     $(div).remove();
     terminaliaperti--;
+    $('#open_terminale').removeClass('open_terminale');
+    $('#open_terminale').addClass('open_terminale1');
   }
 }
 
@@ -166,29 +168,34 @@ function openTerminal() {
       containment: "#container"
     });
     terminaliaperti++;
+    changeMode(true);
+    $('#open_terminale').removeClass('open_terminale1');
+    $('#open_terminale').addClass('open_terminale');
   }
 }
 
-function changeMode() {
+function changeMode(ans) {
   var mode = $('.modalita').text();
   console.log(mode);
-  if (mode == 'Light Mode'){
-    $('.shell').css({'background-color': '#303030	', '--color': 'white', 'border': '2px solid gray'});
+  if ((mode == 'Dark Mode' && !ans) || (mode == 'Light Mode' && ans)){
+    $('.shell').css({'border': '2px solid gray'});
+    $(".shell .terminal").css({'--color': 'white', "--background": "black"});
     $('.cmd').css({'color': 'white', 'background': '#303030'});
     $('.status-bar').css('background', '#303030	');
     $('.upper-bar').css({'background-color': '#303030	', 'color': 'white', 'border': '1px solid gray'});
     $('.title').css('color', 'white');
-    $('.close').css('border', '1px solid #303030');
+    $('.close').css('border', '1px solid gray');
     $('body').css({'background': 'linear-gradient(90deg, black 2px, transparent 1%) center, linear-gradient(black 2px, transparent 1%) center, #303030	', 'background-size': '4px 4px'});
-    $('.modalita').text('Dark Mode');
-  } else if (mode == 'Dark Mode'){
-    $('.shell').css({'background-color': 'white', '--color': 'black'});
-    $('.terminal').css({'--color': 'black', '--background': 'white'});
+    if(!ans){$('.modalita').text('Light Mode')}
+  } else if ((mode == 'Light Mode' && !ans) || (mode == 'Dark Mode' && ans)){
+    console.log(ans);
+    $('.shell').css({'--background': 'white', '--color': 'black', 'border': '2px solid black'});
+    $(".shell .terminal").css({'--color': 'black', "--background": "white"});
     $('.status-bar').css('background', '#fff');
-    $('.upper-bar').css({'background-color': '#fff', 'color': 'black', 'border': '2px solid gray'});
+    $('.upper-bar').css({'background-color': '#fff', 'color': 'black', 'border': '2px solid black'});
     $('.title').css('color', 'black');
-    $('.close').css('border', '2px solid gray');
+    $('.close').css('border', '2px solid black');
     $('body').css({'background': 'linear-gradient(90deg, white 2px, transparent 1%) center, linear-gradient(white 2px, transparent 1%) center, black', 'background-size': '4px 4px'});
-    $('.modalita').text('Light Mode');
+    if(!ans){$('.modalita').text('Dark Mode')};
   }
 }
